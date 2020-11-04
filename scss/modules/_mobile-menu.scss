@@ -1,0 +1,169 @@
+$cMenuClose: $cBlack;
+$cMenuOpen: $cBlack;
+
+.mobile-menu {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 300px;
+
+  & .logo {
+    font: italic small-caps bold 30px/2 cursive;
+    padding: 0 40px;
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  &__btn {
+    background-color: unset;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+    & > span {
+      display: block;
+      background-color: $cMenuClose;
+      width: 35px;
+      height: 2px;
+      margin-bottom: 9px;
+      transition: transform 0.7s;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__main {
+    padding: 0;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+
+  &__item {
+    list-style: none;
+    display: block;
+    transform: translate3d(0, 0, -1000px);
+    padding: 0 40px;
+    transition: transform 0.3s, opacity 0.2s;
+    opacity: 0;
+  }
+
+  &__link {
+    display: block;
+    margin-top: 30px;
+    color: $cBlack;
+    text-decoration: none !important;
+  }
+
+  & form {
+    margin-top: 3rem;
+    padding: 0 4rem;
+  }
+}
+
+.menu-open {
+  & #container {
+    transform: translate(-300px, 60px);
+    box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+  }
+
+  & .mobile-menu {
+    &__cover {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &__item {
+      transform: none;
+      opacity: 1;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.07s;
+        }
+      }
+    }
+
+    &__btn {
+      & > span {
+        background-color: $cMenuOpen;
+
+        &:nth-child(1) {
+          transition-delay: 70ms;
+          transform: translateY(11px) rotate(315deg);
+        }
+        &:nth-child(2) {
+          transition-delay: 0s;
+          transform: translateX(-18px) scaleX(0);
+        }
+        &:nth-child(3) {
+          transition-delay: 140ms;
+          transform: translateY(-11px) rotate(-315deg);
+        }
+      }
+    }
+  }
+}
+
+.mobile {
+  &__button-submit {
+    cursor: pointer;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+
+  &__search-box {
+    display: none;
+    margin-top: 3rem;
+    & > input {
+      padding: 0 1rem;
+      height: 45px;
+      width: 160px;
+      margin-right: 2rem;
+      outline: none;
+    }
+  }
+
+  &__search-box-open {
+    display: flex;
+  }
+
+  &__close-icon {
+    display: none;
+    cursor: pointer;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+
+  &__close-icon-js {
+    display: flex;
+  }
+
+  &__search-icon {
+    display: none;
+    cursor: pointer;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+
+  &__search-js {
+    display: flex;
+  }
+}

@@ -1,0 +1,977 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Kameron", "Noto Sans JP", sans-serif;
+  margin: 0;
+}
+
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+// .mc-mt {
+//   padding-top: 8rem !important;
+// }
+
+// .mc-mb {
+//   padding-bottom: 8rem !important;
+// }
+
+.font-sm {
+  font-size: 1.4rem;
+}
+
+.font-md {
+  font-size: 1.7rem;
+}
+
+.font-lr {
+  font-size: 1.7rem;
+}
+
+.font-lg {
+  font-size: 2.5rem;
+}
+
+.mb-sm {
+  margin-bottom: 1.6rem !important;
+}
+
+.mb-lg {
+  margin-bottom: 8rem !important;
+}
+
+.pb-sm {
+  padding-bottom: 1.6rem !important;
+}
+
+.pb-lg {
+  padding-bottom: 8rem !important;
+}
+
+.main-title {
+  @extend .font-lg;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: block;
+  @extend .mb-sm;
+}
+
+.sub-title {
+  @extend .font-sm;
+  color: $cSubTitle;
+  @extend .mb-sm;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-ja-btn {
+  margin-left: 10px;
+  padding: 0;
+  width: auto;
+  min-width: 90px;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+.detail-btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  @extend .font-md;
+}
+
+#container {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.header {
+  height: $navHeight;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  z-index: 100;
+  background-color: $cImageColor;
+
+  &.triggered {
+    background-color: rgba(187, 255, 118, 0.9);
+    box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__li {
+    margin-left: 20px;
+    @extend .font-md;
+
+    & > a {
+      color: $cBlack;
+      text-decoration: none !important;
+      text-transform: uppercase;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend .content-width;
+  }
+
+  & .search-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .button-submit {
+    cursor: pointer;
+    margin: 10px 10px;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+
+  .search-box {
+    display: none;
+    & > input {
+      outline: none;
+      padding: 0 18px;
+      height: 45px;
+      width: 260px;
+    }
+  }
+
+  .close-icon {
+    display: none;
+    cursor: pointer;
+    margin: 10px 0 10px 40px;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+
+  .search-icon {
+    display: none;
+    cursor: pointer;
+    margin: 10px 0 10px 40px;
+
+    & > i {
+      @extend .font-md;
+    }
+  }
+}
+
+.logo {
+  font: italic small-caps bold 3rem/2 cursive;
+
+  &__position {
+    color: $cMainStr;
+  }
+}
+
+.profile {
+  @extend .content-width;
+  @extend .pb-lg;
+
+  &__title {
+    @extend .mb-sm;
+  }
+
+  &__items {
+    @extend .flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  &__item {
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 18rem;
+  }
+
+  &__img {
+    height: 200px;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      transform: translateY(-130px);
+      // height: 100%;
+      // object-fit: cover;
+    }
+  }
+
+  &__text {
+    background-color: $cWhite;
+    position: absolute;
+    top: 90%;
+    right: 0;
+    width: 80%;
+    margin-left: 20%;
+    z-index: 10;
+    padding: 40px 15px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
+
+      h3,
+      p {
+        color: skyblue;
+      }
+    }
+
+    h3 {
+      color: $cBlack;
+      @extend .font-md;
+      @extend .mb-sm;
+      transition: color 0.3s ease;
+    }
+    p {
+      color: $cSubTitle;
+      @extend .font-sm;
+      transition: color 0.3s ease;
+    }
+  }
+}
+
+.news {
+  @extend .pb-lg;
+  @extend .content-width;
+
+  &__items {
+    @extend .flex;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+  }
+
+  &__item {
+    border-bottom: 1px solid #d0d0d0;
+    padding: 1.5rem 0;
+
+    & a {
+      @extend .mb-sm;
+      &:hover {
+        & p {
+          text-decoration: underline;
+        }
+      }
+
+      & .time {
+        display: block;
+        @extend .mb-sm;
+        color: $cReleaseColor;
+        @extend .font-md;
+      }
+    }
+
+    &-title {
+      @extend .font-md;
+      @extend .mb-sm;
+    }
+
+    &-desc {
+      @extend .font-sm;
+    }
+  }
+}
+
+.versus {
+  @extend .pb-lg;
+  @extend .mb-lg;
+  position: relative;
+
+  @include p-base($top: 10%, $height: 90%) {
+    background-color: rgba(187, 255, 118, 0.6);
+  }
+
+  &__wrap {
+    @extend .content-width;
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    margin-bottom: 15rem;
+  }
+
+  &__img {
+    height: 200px;
+    overflow: hidden;
+
+    & > img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__text {
+    position: absolute;
+    width: 80%;
+    top: 90%;
+    right: 0;
+    padding: 2rem;
+    z-index: 10;
+    background-color: $cWhite;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
+
+      h2,
+      p {
+        color: skyblue;
+      }
+    }
+
+    &-title {
+      @extend .font-md;
+      @extend .mb-sm;
+      transition: color 0.3s ease;
+    }
+  }
+
+  &__desc {
+    @extend .font-sm;
+    transition: color 0.3s ease;
+  }
+
+  &__detail {
+    @extend .font-sm;
+    margin-top: 1rem;
+    color: $cSubTitle;
+    transition: color 0.3s ease;
+  }
+}
+
+.like {
+  @extend .content-width;
+  @extend .mb-lg;
+
+  &__inner {
+    position: relative;
+    z-index: 0;
+    @extend .flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__title {
+    position: relative;
+
+    @include p-base(
+      $display: none,
+      $width: 100px,
+      $height: 1px,
+      $top: 50%,
+      $left: -120px
+    ) {
+      background-color: $cBlack;
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.3s ease 1.6s;
+      transform-origin: right;
+    }
+  }
+
+  &__sub {
+    @extend .mb-sm;
+  }
+
+  &__img {
+    height: 300px;
+    @extend .mb-sm;
+    transition: box-shadow 1ms linear 0.8s;
+
+    & > img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: -1;
+    }
+
+    &.inview {
+      box-shadow: inset 0 0 30px $cBlack;
+    }
+  }
+
+  &__texts {
+    @extend .pb-sm;
+
+    &.inview {
+      & .like__title::before {
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__description {
+    @extend .font-sm;
+  }
+
+  &__btn {
+    @extend .font-md;
+  }
+}
+
+.footer {
+  padding: 60px 0;
+  background-color: $cBlack;
+  color: $cWhite;
+
+  &__inner {
+    @extend .content-width;
+  }
+
+  &__nav {
+    @extend .flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    @extend .font-md;
+  }
+
+  &__ul {
+    @extend .flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__li {
+    padding: 0;
+    margin: 10px;
+  }
+
+  & .logo {
+    font-size: 38px;
+    text-align: center;
+  }
+}
+
+// subページのcss
+.subpage-pt {
+  padding-top: 100px;
+}
+
+.page-head {
+  height: 330px;
+  position: relative;
+
+  & > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: $cWhite;
+}
+
+.page-title-en {
+  @extend .font-md;
+  font-family: "Vollkorn", serif;
+  font-style: italic;
+}
+
+.page-title {
+  margin-top: 12px;
+  @extend .font-lg;
+  font-family: "Noto Sans Japanese", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.page-container {
+  @extend .content-width;
+}
+
+.bread_crumb {
+  display: flex;
+  padding: 14px 0;
+
+  & li {
+    font-size: 14px;
+    color: $cSubTitle;
+
+    & a {
+      color: $cMainStr;
+    }
+
+    &:after {
+      content: ">";
+      padding-left: 10px;
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+// 404.htmlのcss
+.dataList-inner {
+  padding-bottom: 6rem;
+
+  & h3 {
+    font-weight: bold;
+    @extend .mb-sm;
+    @extend .font-md;
+  }
+
+  & p {
+    margin-bottom: 6rem;
+    @extend .font-sm;
+  }
+
+  & form {
+    & .search-box {
+      display: flex;
+      height: 40px;
+
+      & .search-input {
+        padding: 0 18px;
+        width: 412px;
+        font-size: 1.6rem;
+        letter-spacing: 0.1em;
+        border: 1px solid #d0d0d0;
+        background-color: transparent;
+        outline: none;
+      }
+
+      // & .nf-submit-btn {
+      //   margin-left: 10px;
+      //   padding: 0;
+      //   width: auto;
+      //   min-width: 90px;
+      //   font-size: 1.6rem;
+      //   color: #fff;
+      //   background-color: #333;
+      //   cursor: pointer;
+      // }
+    }
+  }
+}
+
+// archive.htmlのcss
+.news {
+  &__list {
+    padding: 8rem;
+  }
+
+  &__link {
+    display: block;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 2rem;
+    line-height: 2;
+    letter-spacing: 0.15em;
+
+    &:hover {
+      & p {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__body {
+    @extend .flex;
+    @extend .font-md;
+  }
+
+  &__release {
+    display: block;
+    color: $cReleaseColor;
+  }
+}
+
+// page-profile.htmlのcss
+.profile {
+  &__page-pt {
+    padding-top: 8rem;
+  }
+}
+
+.more-str {
+  margin-top: 1rem;
+  text-align: right;
+
+  & i {
+    margin-left: 1rem;
+  }
+}
+
+// page-profile-detail.htmlのcss
+.page-text-wrap {
+  width: 80%;
+  margin: 10rem auto;
+  border: solid 2px $cImageColor;
+  padding: 4rem 0;
+  cursor: pointer;
+  line-height: 2;
+  letter-spacing: 0.15em;
+}
+
+.lie-text {
+  width: 80%;
+  @extend .font-md;
+  margin: 0 auto;
+}
+
+.truth-message {
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+  @extend .font-md;
+  color: $cSubTitle;
+  margin-bottom: 1rem;
+}
+
+.arrow {
+  position: relative;
+  font-size: 3rem;
+  margin-bottom: 6rem;
+  color: $cMainStr;
+  &__down {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.7s;
+  }
+
+  &__up {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.7s;
+  }
+
+  &__opa {
+    opacity: 1;
+  }
+}
+
+.return-message {
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+  @extend .font-md;
+  color: $cSubTitle;
+  margin-bottom: 1rem;
+}
+
+.truth-text {
+  display: none;
+  width: 80%;
+  @extend .font-md;
+  margin: 0 auto;
+
+  & h3 {
+    color: red;
+    @extend .pb-sm;
+  }
+}
+
+.message-hover {
+  opacity: 1;
+}
+
+// search.htmlのcss
+
+.search-lesult {
+  &__box {
+    display: flex;
+    height: 40px;
+    margin-top: 5%;
+    margin-bottom: 4%;
+  }
+
+  &__input {
+    padding: 0 14px;
+    font-size: 1.6rem;
+    width: 412px;
+    outline: none;
+  }
+
+  &__head {
+    display: flex;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #d0d0d0;
+
+    & h3 {
+      @extend .font-md;
+    }
+
+    & .total {
+      position: relative;
+      width: 50px;
+      margin-left: 29px;
+      & p {
+        color: $cSubTitle;
+        @extend .font-sm;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__items {
+    @extend .mb-lg;
+  }
+
+  &__item {
+    border-bottom: 1px solid #d0d0d0;
+
+    & a {
+      display: block;
+      padding: 2rem 0;
+    }
+
+    &-wrapper {
+      display: flex;
+      & dl {
+        margin-left: 4rem;
+      }
+
+      & dt {
+        @extend .font-md;
+        margin-top: 1rem;
+        color: #00a5e3;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      & dd {
+        @extend .font-sm;
+        margin-top: 3%;
+      }
+    }
+
+    &-img {
+      width: 160px;
+      min-width: 160px;
+      height: 160px;
+
+      & img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// page-vs.htmlのcss
+.versus {
+  &__page-pt {
+    padding-top: 8rem;
+  }
+}
+
+// page-sidebar.htmlのcss
+.vs-chu {
+  @extend .flex;
+  padding: 8rem 0;
+  justify-content: space-between;
+  line-height: 2;
+  letter-spacing: 0.15em;
+}
+
+.battle {
+  @extend .font-md;
+  flex-basis: 100%;
+  margin-bottom: 5rem;
+
+  &__number {
+    @extend .mb-sm;
+  }
+}
+
+.side {
+  flex-basis: 100%;
+  box-shadow: 0 2.85px 6.8px 0 rgba(0, 0, 0, 0.15);
+}
+
+// single.htmlのcss
+.news-page {
+  padding: 8rem 0;
+  margin: 0 auto;
+  width: 80%;
+
+  &__time {
+    display: block;
+    @extend .font-md;
+    color: $cSubTitle;
+    @extend .mb-sm;
+  }
+
+  &__title {
+    @extend .font-lr;
+    margin-bottom: 3rem;
+    line-height: 2;
+    letter-spacing: 0.15em;
+  }
+
+  &__body {
+    @extend .font-sm;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 3rem;
+    line-height: 2;
+    letter-spacing: 0.15em;
+  }
+
+  &__more {
+    display: flex;
+    justify-content: space-between;
+    @extend .font-sm;
+
+    & .prev-link {
+      display: flex;
+      transition: color 0.3s;
+      &:hover {
+        color: skyblue;
+      }
+      & i {
+        display: block;
+        margin-right: 1rem;
+      }
+    }
+
+    & .next-link {
+      display: flex;
+      transition: color 0.3s;
+      &:hover {
+        color: skyblue;
+      }
+      & i {
+        display: block;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+// sub.htmlのcss
+.like-page {
+  padding: 8rem 0;
+  line-height: 2;
+  letter-spacing: 0.15em;
+  @extend .flex;
+  justify-content: space-between;
+
+  &__wrap {
+    flex-basis: 100%;
+    margin-bottom: 5rem;
+  }
+
+  &__title {
+    @extend .font-lg;
+  }
+
+  &__sub-title {
+    @extend .font-lr;
+  }
+
+  &__item {
+    margin-bottom: 8rem;
+    &-body {
+      @extend .font-sm;
+    }
+  }
+
+  &__famous-saying-desc {
+    margin-bottom: 3rem;
+  }
+
+  &__famous-saying {
+    @extend .font-lr;
+    margin-bottom: 3rem;
+    & span {
+      font-size: 2rem;
+      display: block;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 500px;
+    max-height: 370px;
+    margin-top: 3rem;
+    overflow: hidden;
+    & > img {
+      width: 100%;
+    }
+  }
+
+  &__quote {
+    @extend .font-sm;
+    color: $cSubTitle;
+    margin-top: 1rem;
+  }
+
+  &__sum {
+    @extend .font-md;
+  }
+}

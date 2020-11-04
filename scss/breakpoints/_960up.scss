@@ -1,0 +1,95 @@
+/******************************************************************
+
+Stylesheet: 960px以上のモニタで適用
+
+******************************************************************/
+// .mc-mt {
+//   padding-top: 15rem !important;
+// }
+
+// .mc-mb {
+//   padding-bottom: 15rem !important;
+// }
+
+.font-sm {
+  font-size: 1.6rem;
+}
+
+.font-md {
+  font-size: 1.9rem;
+}
+
+.font-lr {
+  font-size: 2.3rem;
+}
+
+.font-lg {
+  font-size: 3.6rem;
+}
+
+.mb-lg {
+  margin-bottom: 15rem !important;
+}
+
+.pb-lg {
+  padding-bottom: 15rem !important;
+}
+
+.header {
+  &__nav-open {
+    display: block;
+  }
+
+  & .search-box-open {
+    display: flex;
+  }
+
+  & .close-icon-js {
+    display: flex;
+  }
+
+  & .search-js {
+    display: flex;
+  }
+}
+
+.mobile-menu {
+  &__btn {
+    display: none;
+  }
+}
+
+.profile {
+  &__img {
+    height: 500px;
+  }
+}
+
+.like {
+  &__img {
+    height: 400px;
+  }
+
+  &__description {
+    margin-bottom: 40px;
+  }
+  &__title {
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.dataList-inner {
+  padding-bottom: 120px;
+}
+
+// .search-lesult {
+//   &__item {
+//     &-img {
+//       width: 350px;
+//       min-width: 350px;
+//       height: 350px;
+//     }
+//   }
+// }
